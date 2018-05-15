@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         id="WebApp_ID" version="3.1">
+    <display-name>KYC server</display-name>
+
+
+    <servlet>
+        <servlet-name>jersey</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+
+        <!-- Register resources and providers under my.package. -->
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>uy.org.cjpb.demo</param-value>
+        </init-param>
+        
+<!--        <init-param>
+            <param-name>com.sun.jersey.spi.container.ContainerRequestFilters</param-name>
+            <param-value>uy.org.cjpb.demo.filter</param-value>
+        </init-param>-->
+		
+        <!-- Register my custom provider (not needed if it's in my.package) AND 
+        LoggingFilter. <init-param> <param-name>jersey.config.server.provider.classnames</param-name> 
+        <param-value>my.package.SecurityRequestFilter;org.glassfish.jersey.filter.LoggingFilter</param-value> 
+        </init-param> -->
+
+        <!-- Enable Tracing support. -->
+        <init-param>
+            <param-name>jersey.config.server.tracing</param-name>
+            <param-value>ALL</param-value>
+        </init-param>
+
+
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+	
+    <servlet-mapping>
+        <servlet-name>jersey</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
+
+    <resource-env-ref>
+        <resource-env-ref-name>BeanManager</resource-env-ref-name>
+        <resource-env-ref-type>
+            javax.enterprise.inject.spi.BeanManager
+        </resource-env-ref-type>
+    </resource-env-ref>
+	
+    <!-- Servlet request listener -->
+<!--    <listener>
+        <listener-class>uy.org.cjpb.demo.listener.EntityManagerRequestListener</listener-class>
+    </listener>-->
+	
+    <!-- Cors filter -->
+<!--    <filter>
+        <filter-name>CORS Filter</filter-name>
+        <filter-class>org.ebaysf.web.cors.CORSFilter</filter-class>
+
+        <init-param>
+            <description>A comma separated list of HTTP verbs, using which a CORS request can be made.</description>
+            <param-name>cors.allowed.methods</param-name>
+            <param-value>GET,POST,HEAD,OPTIONS,PUT,DELETE</param-value>
+        </init-param>
+		
+        <init-param>
+            <description>A comma separated list non-standard response headers that will be exposed to XHR2 object.</description>
+            <param-name>cors.exposed.headers</param-name>
+            <param-value>Content-Disposition,X-Total-Results</param-value>
+        </init-param>
+		
+        <init-param>
+            <description>A comma separated list of request headers that can be used when making an actual request. These header will also be returned as part of 'Access-Control-Allow-Headers' header in a pre-flight response. Ex: Origin,Accept.</description>
+            <param-name>cors.allowed.headers</param-name>
+            <param-value>Access-Control-Allow-Origin,Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers, Authorization, Modulo, Funcionalidad</param-value>
+        </init-param>
+    </filter>
+	
+    <filter-mapping>
+        <filter-name>CORS Filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>-->
+</web-app>
