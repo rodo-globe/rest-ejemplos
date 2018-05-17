@@ -3,32 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uy.org.cjpb.demo.service.rest.interprete;
+package uy.org.cjpb.demo.interprete;
 
 /**
  *
  * @author rodo
  */
-public class Option {
+public class ComponentValueDropdown implements IComponentValue {
     
-    private int id;
+    private int value;
     private String label;
 
-    public Option() {
-        
-    }
-    
-    public Option(int id, String label) {
-        this.id = id;
-        this.label = label;
+    public int getValue() {
+        return value;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setValue(int value) {
+        this.value = value;
     }
 
     public String getLabel() {
@@ -38,6 +29,5 @@ public class Option {
     public void setLabel(String label) {
         this.label = label;
     }
-    
     
 }

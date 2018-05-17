@@ -3,22 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uy.org.cjpb.demo.service.rest.interprete;
+package uy.org.cjpb.demo.interprete;
 
 /**
  *
  * @author rodo
  */
-public class ComponentValueInt implements IComponentValue{
+public class ComponentValueString implements IComponentValue{
     
-    private int value;
+    private String value;
 
-    public int getValue() {
+    public ComponentValueString(String value) {
+        this.value = value;
+    }
+
+    public String getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(String value) {
         this.value = value;
     }
+    
     
 }
