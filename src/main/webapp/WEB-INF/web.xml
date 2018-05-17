@@ -13,7 +13,7 @@
         <!-- Register resources and providers under my.package. -->
         <init-param>
             <param-name>jersey.config.server.provider.packages</param-name>
-            <param-value>uy.org.cjpb.demo.service.rest</param-value>
+            <param-value>uy.org.cjpb.demo</param-value>
         </init-param>
         
         <!-- Enable Tracing support. -->
