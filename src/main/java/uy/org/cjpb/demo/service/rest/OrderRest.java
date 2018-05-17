@@ -58,9 +58,8 @@ public class OrderRest {
     }
         
     @GET
-    @Path("{id}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Path("{id}")  
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public OrderDto getOrder(@PathParam("id") int id){
         
         Logger.getLogger(this.getClass(), "ejecutó getOrder( " + id + " )");
@@ -71,8 +70,7 @@ public class OrderRest {
     }
     
     @GET
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public List<OrderDto> finByParams(@QueryParam("name") String name){
     
         Logger.getLogger(this.getClass(), "ejecutó findByParams( " +name + " )");
@@ -85,11 +83,10 @@ public class OrderRest {
                 .collect(Collectors.toList());
         }
     }
-
+    
     @PUT
-    @Path("{id}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Path("{id}") 
+    @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public void update(@PathParam("id") int id, OrderDto order){
         
          Logger.getLogger(this.getClass(), "ejecutó update "); 
@@ -105,9 +102,10 @@ public class OrderRest {
     
     @POST
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public OrderDto insert(OrderDto order){
         
-         Logger.getLogger(this.getClass(), "ejecutó delete ");    
+         Logger.getLogger(this.getClass(), "ejecutó insert ");    
          order.setId(999);
          return order;
     }    
