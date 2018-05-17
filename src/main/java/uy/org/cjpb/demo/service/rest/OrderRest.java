@@ -8,7 +8,9 @@ package uy.org.cjpb.demo.service.rest;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Executor;
 import java.util.stream.Collectors;
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -19,7 +21,15 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.container.AsyncResponse;
+import javax.ws.rs.container.Suspended;
+import javax.ws.rs.core.Application;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Request;
+import javax.ws.rs.core.SecurityContext;
+import javax.ws.rs.core.UriInfo;
+import javax.ws.rs.ext.Providers;
 import org.jboss.logging.Logger;
 import uy.org.cjpb.demo.dto.OrderDto;
 
@@ -30,6 +40,21 @@ import uy.org.cjpb.demo.dto.OrderDto;
 
 @Path("/orders")
 public class OrderRest {
+    
+    /*
+    @Context Providers providers;
+    
+    @Context SecurityContext security;
+    
+    @Context Request request;
+    
+    @Context UriInfo uri;
+    
+    @Context Application app;
+    */
+    
+    
+    
     
     List<OrderDto> orderList = new ArrayList<>();
     
@@ -84,6 +109,33 @@ public class OrderRest {
         }
     }
     
+    /*
+    @Inject
+    private Executor executor;
+      
+    @GET
+    @Path("async")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public void asyncGet(@Suspended final AsyncResponse ar, @QueryParam("name") String name){
+    
+        Logger.getLogger(this.getClass(), "comenzo ejecucion findByParams( " +name + " )");
+         
+        executor.execute(() -> {
+            
+            for(int i = 1; i <= 100000; i++){
+                System.out.println("imprimo i " + i );
+            }
+            if(name == null || name.isEmpty()){
+                ar.resume(orderList);
+            }else{
+
+                ar.resume(orderList.stream()
+                    .filter(o -> o.getCustomerName().equalsIgnoreCase(name))
+                    .collect(Collectors.toList()));
+            }
+        });
+    }*/
+
     @PUT
     @Path("{id}") 
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
