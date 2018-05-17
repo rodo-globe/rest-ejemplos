@@ -5,6 +5,14 @@
  */
 package uy.org.cjpb.demo.service.rest;
 
+import uy.org.cjpb.demo.service.rest.interprete.ComponentValueString;
+import uy.org.cjpb.demo.service.rest.interprete.IComponent;
+import uy.org.cjpb.demo.service.rest.interprete.IComponentValue;
+import uy.org.cjpb.demo.service.rest.interprete.Dropdown;
+import uy.org.cjpb.demo.service.rest.interprete.ComponentValueInt;
+import uy.org.cjpb.demo.service.rest.interprete.Input;
+import uy.org.cjpb.demo.service.rest.interprete.ComponentValueDropdown;
+import uy.org.cjpb.demo.service.rest.interprete.Option;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.Consumes;

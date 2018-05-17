@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uy.org.cjpb.demo.service.rest;
+package uy.org.cjpb.demo.service.rest.interprete;
+
+import uy.org.cjpb.demo.service.rest.interprete.Option;
 
 /**
  *
