@@ -20,6 +20,7 @@ import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.ext.MessageBodyReader;
 import javax.ws.rs.ext.Provider;
 import uy.org.cjpb.demo.interprete.ComponentValueDropdown;
+import uy.org.cjpb.demo.interprete.ComponentValueInt;
 import uy.org.cjpb.demo.interprete.ComponentValueString;
 import uy.org.cjpb.demo.interprete.IComponentValue;
 
@@ -57,10 +58,23 @@ public class ValuesListReader implements MessageBodyReader<List<IComponentValue>
                 String label = (String) labelObj;
                 
                 componentsList.add(new ComponentValueDropdown(value, label));
+            }else{
+            
+                Object valueObj = hmap.get("value");
+                if(valueObj instanceof String){
+                
+                    String value = (String) valueObj;
+                    componentsList.add(new ComponentValueString(value));
+                }else if(valueObj instanceof Integer){
+                
+                    Integer value = (Integer) valueObj;
+                    componentsList.add(new ComponentValueInt(value));
+                }
+                
             }
         });
         
-        return null;
+        return componentsList;
     }
     
 }

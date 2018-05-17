@@ -13,6 +13,15 @@ public class ComponentValueInt implements IComponentValue{
     
     private int value;
 
+    public ComponentValueInt() {
+        
+    }
+
+    
+    public ComponentValueInt(int value) {
+        this.value = value;
+    }
+
     public int getValue() {
         return value;
     }
