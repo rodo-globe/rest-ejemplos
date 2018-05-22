@@ -5,13 +5,6 @@
  */
 package uy.org.cjpb.demo.service.rest;
 
-import uy.org.cjpb.demo.interprete.ComponentValueString;
-import uy.org.cjpb.demo.interprete.IComponent;
-import uy.org.cjpb.demo.interprete.Dropdown;
-import uy.org.cjpb.demo.interprete.ComponentValueInt;
-import uy.org.cjpb.demo.interprete.Input;
-import uy.org.cjpb.demo.interprete.ComponentValueDropdown;
-import uy.org.cjpb.demo.interprete.Option;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.Consumes;
@@ -20,26 +13,33 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import uy.org.cjpb.demo.interprete.ComponentValueDropdown;
+import uy.org.cjpb.demo.interprete.Option;
+import uy.org.cjpb.demo.interprete.jackson.ComponentValueInt2;
+import uy.org.cjpb.demo.interprete.jackson.ComponentValueString2;
+import uy.org.cjpb.demo.interprete.jackson.Dropdown2;
+import uy.org.cjpb.demo.interprete.jackson.IComponent2;
 import uy.org.cjpb.demo.interprete.jackson.IComponentValue2;
+import uy.org.cjpb.demo.interprete.jackson.Input2;
 
 /**
  *
  * @author rodo
  */
-@Path("components")
-public class InterpreterService {
+@Path("components2")
+public class InterpreterService2 {
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<IComponent> getComponents(){
+    public List<IComponent2> getComponents(){
     
-        List<IComponent> components = new ArrayList<>();
+        List<IComponent2> components = new ArrayList<>();
         
-        Input i1 = new Input("name", Input.TYPE_STRING);
-        Input i2 = new Input("surname", Input.TYPE_STRING);
-        Dropdown d1 = loadCities("adress_city");
-        Input i3 = new Input("address_street", Input.TYPE_STRING);
-        Input i4 = new Input("age", Input.TYPE_NUMBER);
+        Input2 i1 = new Input2("name", Input2.TYPE_STRING);
+        Input2 i2 = new Input2("surname", Input2.TYPE_STRING);
+        Dropdown2 d1 = loadCities("adress_city");
+        Input2 i3 = new Input2("address_street", Input2.TYPE_STRING);
+        Input2 i4 = new Input2("age", Input2.TYPE_NUMBER);
         
         components.add(i1);
         components.add(i2);
@@ -56,16 +56,16 @@ public class InterpreterService {
     
         values.forEach( v -> {
         
-            if(v instanceof ComponentValueInt){
+            if(v instanceof ComponentValueInt2){
                 
-                int value = ((ComponentValueInt) v).getValue();
+                int value = ((ComponentValueInt2) v).getValue();
                 
                 System.out.println(" I'm an int value " + value);
             }
             
-            if(v instanceof ComponentValueString){
+            if(v instanceof ComponentValueString2){
                 
-                String value = ((ComponentValueString) v).getValue();
+                String value = ((ComponentValueString2) v).getValue();
                 
                 System.out.println(" I'm a string value " + value);
             }
@@ -81,9 +81,9 @@ public class InterpreterService {
     } 
     
     
-    private Dropdown loadCities(String id){
+    private Dropdown2 loadCities(String id){
     
-        Dropdown d1 = new Dropdown();
+        Dropdown2 d1 = new Dropdown2();
         d1.setId(id);
         
         Option o1 = new Option(1, "Montevideo");

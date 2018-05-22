@@ -5,11 +5,12 @@
  */
 package uy.org.cjpb.demo.interprete;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 /**
  *
  * @author rodo
  */
 public interface IComponentValue {
-    
     
 }

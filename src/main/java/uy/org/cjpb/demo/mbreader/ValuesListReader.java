@@ -36,7 +36,16 @@ public class ValuesListReader implements MessageBodyReader<List<IComponentValue>
 
     @Override
     public boolean isReadable(Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
-        return true;
+        
+        if(type.getClass().getSimpleName().equalsIgnoreCase("List")){
+        
+            if(genericType.getTypeName().equalsIgnoreCase("java.util.List<uy.org.cjpb.demo.interprete.jackson.IComponentValue>")){
+                
+                return true;
+            }
+        }
+        
+        return false;
     }
 
 //    @Override

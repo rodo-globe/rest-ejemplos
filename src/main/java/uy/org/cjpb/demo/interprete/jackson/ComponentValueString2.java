@@ -3,19 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uy.org.cjpb.demo.interprete;
+package uy.org.cjpb.demo.interprete.jackson;
 
-import uy.org.cjpb.demo.interprete.jackson.IComponentValue2;
+import uy.org.cjpb.demo.interprete.*;
 
 /**
  *
  * @author rodo
  */
-public class ComponentValueString implements IComponentValue{
+public class ComponentValueString2 implements IComponentValue2{
     
     private String value;
 
-    public ComponentValueString(String value) {
+    public ComponentValueString2() {
+        
+    }
+    
+    public ComponentValueString2(String value) {
         this.value = value;
     }
 
