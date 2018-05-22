@@ -5,6 +5,7 @@
  */
 package uy.org.cjpb.demo.service.rest;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.Consumes;
@@ -36,6 +37,7 @@ public class InterpreterService2 {
         List<IComponent2> components = new ArrayList<>();
         
         Input2 i1 = new Input2("name", Input2.TYPE_STRING);
+        i1.setFecha(LocalDate.now());
         Input2 i2 = new Input2("surname", Input2.TYPE_STRING);
         Dropdown2 d1 = loadCities("adress_city");
         Input2 i3 = new Input2("address_street", Input2.TYPE_STRING);

@@ -88,7 +88,7 @@ public class ValuesListReader implements MessageBodyReader<List<IComponentValue>
 //        return componentsList;
 //    }
     
-      @Override
+    @Override
     public List<IComponentValue> readFrom(Class<List<IComponentValue>> type, Type genericType, Annotation[] annotations, MediaType mediaType, 
             MultivaluedMap<String, String> httpHeaders, InputStream entityStream) throws IOException, WebApplicationException {
         

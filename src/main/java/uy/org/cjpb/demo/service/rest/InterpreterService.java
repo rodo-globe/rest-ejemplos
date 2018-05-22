@@ -20,6 +20,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import uy.org.cjpb.demo.interprete.IComponentValue;
 import uy.org.cjpb.demo.interprete.jackson.IComponentValue2;
 
 /**
@@ -52,7 +53,7 @@ public class InterpreterService {
     
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
-    public void processPageSubmit(List<IComponentValue2> values){
+    public void processPageSubmit(List<IComponentValue> values){
     
         values.forEach( v -> {
         

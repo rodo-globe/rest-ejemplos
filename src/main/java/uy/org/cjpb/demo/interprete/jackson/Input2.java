@@ -5,6 +5,7 @@
  */
 package uy.org.cjpb.demo.interprete.jackson;
 
+import java.time.LocalDate;
 import uy.org.cjpb.demo.interprete.*;
 
 /**
@@ -18,6 +19,7 @@ public class Input2 implements IComponent2{
     
     private String id;
     private String dataType;
+    private LocalDate fecha;
 
     public Input2() {
         
@@ -43,6 +45,15 @@ public class Input2 implements IComponent2{
     public void setDataType(String dataType) {
         this.dataType = dataType;
     }
+
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
+    }
+    
     
     
 }
