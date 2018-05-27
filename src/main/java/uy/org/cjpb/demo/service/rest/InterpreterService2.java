@@ -5,11 +5,16 @@
  */
 package uy.org.cjpb.demo.service.rest;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.HttpMethod;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -23,13 +28,18 @@ import uy.org.cjpb.demo.interprete.jackson.IComponent2;
 import uy.org.cjpb.demo.interprete.jackson.IComponentValue2;
 import uy.org.cjpb.demo.interprete.jackson.Input2;
 
+
+
+
+
+
 /**
  *
  * @author rodo
  */
 @Path("components2")
 public class InterpreterService2 {
-    
+   
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<IComponent2> getComponents(){
@@ -83,6 +93,7 @@ public class InterpreterService2 {
     } 
     
     
+    
     private Dropdown2 loadCities(String id){
     
         Dropdown2 d1 = new Dropdown2();
@@ -100,3 +111,5 @@ public class InterpreterService2 {
         return d1;
     }
 }
+
+
