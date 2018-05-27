@@ -10,6 +10,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.MatrixParam;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.PathSegment;
 import javax.ws.rs.core.Response;
@@ -27,7 +28,7 @@ public class StoreService {
     @GET
     @Path("/{cat:categories}/product")
     public Response getProductsByCategory(@PathParam("cat") PathSegment categories, 
-            @MatrixParam("name") String name, @MatrixParam("color") String color){
+            @MatrixParam("name") String name, @MatrixParam("color") String color, @QueryParam("page") int page){
         
         MultivaluedMap<String, String> matrix = categories.getMatrixParameters();
         List<String> names = matrix.get("name");
@@ -37,6 +38,8 @@ public class StoreService {
         
         System.out.println("product name " + name);
         System.out.println("product color " + color);
+        
+        System.out.println("page " + page);
         
         return Response.ok().build();
     }
