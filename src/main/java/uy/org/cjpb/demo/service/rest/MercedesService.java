@@ -35,9 +35,9 @@ public class MercedesService {
     //http://example.cars.com/mercedes/e55;color=black;automatic=true/2006?page=1
     
     @GET
-    @Path("/{var:e55}/{year}")
+    @Path("/{model:e55}/{year}")
     @Produces("image/jpeg")
-    public Jpeg getE55Picture(@PathParam("var") PathSegment e55, @PathParam("year") String year, @QueryParam("page") int page){
+    public Jpeg getE55Picture(@PathParam("model") PathSegment e55, @PathParam("year") String year, @QueryParam("page") int page){
             //@MatrixParam("color") String color, @MatrixParam("automatic") Boolean automcatic){
     
         MultivaluedMap<String, String> matrix = e55.getMatrixParameters();
