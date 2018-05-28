@@ -29,8 +29,8 @@ public class ColorConverterProvider implements ParamConverterProvider {
             @Override
             public T fromString(String value) {
 
-                Color c = new Color(value);
-                return rawType.cast(c);
+                ColorConverter cc = new ColorConverter();
+                return rawType.cast(cc.fromString(value));
             }
 
             @Override
@@ -39,10 +39,10 @@ public class ColorConverterProvider implements ParamConverterProvider {
                 if (value == null) {
                     return null;
                 }
-
-                return value.toString();
+                
+                ColorConverter cc = new ColorConverter();
+                return cc.toString((Color) value);                
             }
         };
     }
-
 }
