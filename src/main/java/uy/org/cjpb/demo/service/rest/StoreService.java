@@ -43,4 +43,17 @@ public class StoreService {
         
         return Response.ok().build();
     }
+    
+    @GET
+    @Path("/products")
+    public Response getProducts(@QueryParam("start") int start, @QueryParam("size") int size, @QueryParam("orderBy") List<String> orderBy){
+    
+            System.out.println("product start " + start);
+            System.out.println("product size " + size);
+            System.out.println("product orderBy " );
+            orderBy.forEach( o -> System.out.println(o));
+        
+            return Response.ok().build();        
+    }
+    
 }

@@ -15,6 +15,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.PathSegment;
+import uy.org.cjpb.demo.shape.Color;
 
 /**
  *
@@ -51,6 +52,16 @@ public class MercedesService {
         
         return null;
     }
+    
+    @GET
+    @Path("/clase-C")
+    public Jpeg getClaseC(@MatrixParam("color") Color color){
+    
+        System.out.println("Clase C color " + color.getColor());
+        
+        return null;
+    }
+    
 }
 
 
